@@ -1,0 +1,6 @@
+CodepiplineSNSTopic:
+  Type: AWS::SNS::Topic
+  Properties:
+    Subscription:
+      - Endpoint: vazliskib@gmail.com
+        Protocol: "email"

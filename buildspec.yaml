@@ -8,8 +8,8 @@ env:
   build:
     commands:
       - sam build -t template.yml
-      - sam package --template template.yml --s3-bucket "$test1cross-region1" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-region1.yml --region eu-west-1
-      - sam package --template template.yml --s3-bucket "$test1cross_region2" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-region2.yml --region eu-west-2
+      - sam package --template template.yml --s3-bucket "$S3_BUCKET_region1" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-region1.yml --region eu-west-1
+      - sam package --template template.yml --s3-bucket "$S3_BUCKET_region2" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-region2.yml --region eu-west-2
 
   post_build:
     commands:

@@ -1,10 +1,5 @@
 version: 0.2
 
-env:
-  parameter-store:
-    GIT_USER: "git-user"
-    GIT_PASS: "git-pass"
-
   build:
     commands:
       - sam build -t template.yml

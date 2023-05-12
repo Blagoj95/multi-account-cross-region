@@ -1,19 +1,19 @@
 version: 0.2
 
-build:
-  commands:
-    - sam build -t template.yml
-    - sam package --template template.yml --s3-bucket "$S3_BUCKET_region1" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-region1.yml --region eu-west-1
-    - sam package --template template.yml --s3-bucket "$s3bucketregion2" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-region2.yml --region eu-west-2
+phases:
+  install:
+    commands:
+      - pip install --upgrade awscli # https://github.com/awslabs/serverless-application-model/issues/93
+  build:
+    commands:
+      - sam build -t template.yml
+      - sam package --template template.yml --s3-bucket "$S3_BUCKET_region1" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-eu-west-1.yml --region eu-west-1
+      - sam package --template template.yml --s3-bucket "$s3bucketregion2" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-eu-west-2.yml --region eu-west-2
 
-
-
-post_build:
-  commands:
-  
-  
-  artifacts:
-    type: zip
-    files:
-      - template-export-region1.yml
-      - template-export-region2.yml
+artifacts:
+  type: zip
+  discard-paths: yes
+  files:
+    # *** Change this list to reflect the per-region files generated in multiregion-build.sh
+    - template-export-eu-west-1.yml
+    - template-export-eu-west-2.yml

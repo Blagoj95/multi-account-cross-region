@@ -7,8 +7,8 @@ phases:
   build:
     commands:
       - sam build -t template.yaml
-      - sam package --template template.yml --s3-bucket "$EU_WEST_1_ARTIFACT_BUCKET" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-eu-west-1.yml --region eu-west-1
-      - sam package --template template.yml --s3-bucket "$EU_WEST_2_ARTIFACT_BUCKET" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-eu-west-2.yml --region eu-west-2
+      - sam package --template template.yaml --s3-bucket "$EU_WEST_1_ARTIFACT_BUCKET" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-eu-west-1.yml --region eu-west-1
+      - sam package --template template.yaml --s3-bucket "$EU_WEST_2_ARTIFACT_BUCKET" --s3-prefix "$PROJECT_ID/builds" --output-template template-export-eu-west-2.yml --region eu-west-2
 
 artifacts:
   type: zip

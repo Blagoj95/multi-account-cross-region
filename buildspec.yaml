@@ -8,6 +8,7 @@ phases:
     commands:
       - sam build -t template.yaml
       - sam package --template template.yaml --s3-bucket "$EU_WEST_1_ARTIFACT_BUCKET" --s3-prefix "$PROJECT_ID/builds" --output-template-file template-export-eu-west-1.yml --region eu-west-1
+      - sam build -t template_ec2_eu-west-2.yaml
       - sam package --template template_ec2_eu-west-2.yaml --s3-bucket "$EU_WEST_2_ARTIFACT_BUCKET" --s3-prefix "$PROJECT_ID/builds" --output-template-file template-export-eu-west-2.yml --region eu-west-2
 
 artifacts:

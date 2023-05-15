@@ -1,0 +1,9 @@
+Resources:
+  MyEC2Instance:
+      Type: 'AWS::EC2::Instance'
+      Properties:
+        ImageId: ami-0a242269c4b530c5e  # Choose the AMI that you want to use
+        InstanceType: t2.micro         # Choose the instance type that you want to us             # Replace with the name of your EC2 key pair
+        Tags:
+          - Key: Name
+            Value: MyEC2Instance

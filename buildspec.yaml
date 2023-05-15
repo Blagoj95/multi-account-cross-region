@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - pip install --upgrade awscli # https://github.com/awslabs/serverless-application-model/issues/93
+      - echo Install Succsesfull
   build:
     commands:
       - sam build -t template.yaml
